@@ -1,0 +1,8 @@
+{
+  "attribute.name.mysticism.mana_regen_per_second": "Mana Regeneration",
+  "commands.mysticism.get": "Mana: %s / %s",
+  "commands.mysticism.set": "Set maximum mana to %s.",
+  "commands.mysticism.add": "Changed maximum mana by %s. New maximum: %s.",
+  "commands.mysticism.fill": "Mana filled.",
+  "commands.mysticism.empty": "Mana emptied."
+}

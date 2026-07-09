@@ -1,0 +1,15 @@
+.gradle/
+build/
+out/
+run/
+runs/
+logs/
+crash-reports/
+libs/*.jar
+!.gitkeep
+*.class
+*.log
+*.iml
+.idea/
+.vscode/
+.DS_Store
