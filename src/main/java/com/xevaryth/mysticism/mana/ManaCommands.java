@@ -7,6 +7,7 @@ import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 public final class ManaCommands {
     private ManaCommands() {}
@@ -28,14 +29,14 @@ public final class ManaCommands {
         );
     }
 
-    private static int get(CommandSourceStack source) throws Exception {
+    private static int get(CommandSourceStack source) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         ManaData data = player.getData(ManaAttachments.MANA.get());
         source.sendSuccess(() -> Component.translatable("commands.mysticism.get", data.currentMana(), data.maxMana()), false);
         return data.currentMana();
     }
 
-    private static int set(CommandSourceStack source, int max) throws Exception {
+    private static int set(CommandSourceStack source, int max) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         ManaData data = player.getData(ManaAttachments.MANA.get());
         data.setMaxMana(max);
@@ -44,7 +45,7 @@ public final class ManaCommands {
         return max;
     }
 
-    private static int add(CommandSourceStack source, int amount) throws Exception {
+    private static int add(CommandSourceStack source, int amount) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         ManaData data = player.getData(ManaAttachments.MANA.get());
         data.addMaxMana(amount, true);
@@ -53,7 +54,7 @@ public final class ManaCommands {
         return data.maxMana();
     }
 
-    private static int fill(CommandSourceStack source) throws Exception {
+    private static int fill(CommandSourceStack source) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         ManaData data = player.getData(ManaAttachments.MANA.get());
         data.fill();
@@ -62,7 +63,7 @@ public final class ManaCommands {
         return data.currentMana();
     }
 
-    private static int empty(CommandSourceStack source) throws Exception {
+    private static int empty(CommandSourceStack source) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         ManaData data = player.getData(ManaAttachments.MANA.get());
         data.empty();

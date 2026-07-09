@@ -29,3 +29,10 @@ type="required"
 versionRange="[21.1.1,)"
 ordering="AFTER"
 side="BOTH"
+
+[[dependencies.mysticism]]
+modId="puzzleslib"
+type="required"
+versionRange="[21.1.52,)"
+ordering="AFTER"
+side="CLIENT"

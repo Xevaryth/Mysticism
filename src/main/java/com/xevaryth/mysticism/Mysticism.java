@@ -18,7 +18,7 @@ public final class Mysticism {
 
     public Mysticism(IEventBus modBus) {
         ManaAttachments.register(modBus);
-        MysticismAttributes.register(modBus);
+        MysticismAttributes.ATTRIBUTES.register(modBus);
         ManaHud.register(modBus);
 
         NeoForge.EVENT_BUS.addListener(ManaCommands::register);

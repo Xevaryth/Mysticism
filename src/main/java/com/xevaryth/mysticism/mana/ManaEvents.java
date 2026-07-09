@@ -12,7 +12,7 @@ public final class ManaEvents {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
 
         ManaData data = player.getData(ManaAttachments.MANA.get());
-        double regen = player.getAttributeValue(MysticismAttributes.MANA_REGEN_PER_SECOND.get());
+        double regen = player.getAttributeValue(MysticismAttributes.MANA_REGEN_PER_SECOND.getDelegate());
         if (data.tickRegen(regen)) {
             player.setData(ManaAttachments.MANA.get(), data);
         }
