@@ -1,59 +1,110 @@
 package com.xevaryth.mysticism.mana;
 
 public final class ManaData {
-    public static final int DEFAULT_MAX_MANA = 40;
-    public static final int HARD_CAP = 9999;
-
-    private int currentMana = DEFAULT_MAX_MANA;
-    private int maxMana = DEFAULT_MAX_MANA;
+    private int currentMana = 0;
     private double regenAccumulator = 0.0D;
 
-    public int currentMana() { return currentMana; }
-    public int maxMana() { return maxMana; }
+    /*
+     * Tracks whether this player has received the configured
+     * starting attribute values.
+     */
+    private boolean attributesInitialized = false;
 
-    public void setCurrentMana(int value) {
-        currentMana = clamp(value, 0, maxMana);
+    public int currentMana() {
+        return currentMana;
     }
 
-    public void setMaxMana(int value) {
-        maxMana = clamp(value, 0, HARD_CAP);
-        currentMana = clamp(currentMana, 0, maxMana);
+    public boolean attributesInitialized() {
+        return attributesInitialized;
     }
 
-    public void addMaxMana(int amount, boolean fillGainedMana) {
-        int oldMax = maxMana;
-        setMaxMana(maxMana + amount);
-        if (fillGainedMana && maxMana > oldMax) {
-            setCurrentMana(currentMana + (maxMana - oldMax));
-        }
+    public void markAttributesInitialized() {
+        attributesInitialized = true;
     }
 
-    public void fill() { currentMana = maxMana; }
-    public void empty() { currentMana = 0; }
+    public void setCurrentMana(
+        int value,
+        int maxMana
+    ) {
+        currentMana = clamp(
+            value,
+            0,
+            Math.max(0, maxMana)
+        );
+    }
 
-    public boolean tickRegen(double manaPerSecond) {
-        if (manaPerSecond <= 0.0D || currentMana >= maxMana) {
+    public void addCurrentMana(
+        int amount,
+        int maxMana
+    ) {
+        setCurrentMana(
+            currentMana + amount,
+            maxMana
+        );
+    }
+
+    public void fill(int maxMana) {
+        currentMana = Math.max(0, maxMana);
+    }
+
+    public void empty() {
+        currentMana = 0;
+    }
+
+    public boolean tickRegen(
+        double manaPerSecond,
+        int maxMana
+    ) {
+        int safeMaxMana = Math.max(0, maxMana);
+
+        if (
+            manaPerSecond <= 0.0D ||
+                currentMana >= safeMaxMana
+        ) {
             regenAccumulator = 0.0D;
             return false;
         }
+
         regenAccumulator += manaPerSecond / 20.0D;
-        int wholeMana = (int) Math.floor(regenAccumulator);
-        if (wholeMana <= 0) return false;
+
+        int wholeMana =
+            (int) Math.floor(regenAccumulator);
+
+        if (wholeMana <= 0) {
+            return false;
+        }
+
         regenAccumulator -= wholeMana;
+
         int before = currentMana;
-        setCurrentMana(currentMana + wholeMana);
+
+        setCurrentMana(
+            currentMana + wholeMana,
+            safeMaxMana
+        );
+
         return currentMana != before;
     }
 
     public ManaData copy() {
         ManaData copy = new ManaData();
+
         copy.currentMana = currentMana;
-        copy.maxMana = maxMana;
         copy.regenAccumulator = regenAccumulator;
+        copy.attributesInitialized =
+            attributesInitialized;
+
         return copy;
     }
 
-    private static int clamp(int value, int min, int max) {
-        return Math.max(min, Math.min(max, value));
+    private static int clamp(
+        int value,
+        int minimum,
+        int maximum
+    ) {
+        return Math.max(
+            minimum,
+            Math.min(maximum, value)
+        );
     }
 }

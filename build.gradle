@@ -44,19 +44,6 @@ neoForge {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
-repositories {
-    maven {
-        name = "Modrinth"
-        url = uri("https://api.modrinth.com/maven")
-    }
-}
-
-
-dependencies {
-    runtimeOnly fileTree(dir: 'libs', include: ['*.jar'])
-    runtimeOnly "maven.modrinth:overflowing-bars:v21.1.1-1.21.1-NeoForge"
-    runtimeOnly "maven.modrinth:puzzles-lib:v21.1.52-1.21.1-NeoForge"
-}
 
 jar {
     manifest {
