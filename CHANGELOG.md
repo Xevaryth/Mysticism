@@ -2,7 +2,7 @@
 
 ## 0.1.0
 
-- Renamed the project to Simper Mana Library.
+- Renamed the project to Mysticism.
 - Initial NeoForge 1.21.1 project.
 - Added player mana attachment.
 - Added mana regeneration attribute.

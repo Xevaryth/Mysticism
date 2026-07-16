@@ -1,28 +1,28 @@
-package com.xevaryth.simpermanalibrary.registry;
+package com.xevaryth.mysticism.registry;
 
-import com.xevaryth.simpermanalibrary.SimperManaLibrary;
+import com.xevaryth.mysticism.Mysticism;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import com.xevaryth.simpermanalibrary.mana.ManaDataLimits;
+import com.xevaryth.mysticism.mana.ManaDataLimits;
 
-public final class SimperManaAttributes {
+public final class MysticismAttributes {
     public static final double FALLBACK_MAX_MANA = 40.0D;
     public static final double FALLBACK_MANA_REGEN = 1.0D;
 
     public static final DeferredRegister<Attribute> ATTRIBUTES =
         DeferredRegister.create(
             Registries.ATTRIBUTE,
-            SimperManaLibrary.MOD_ID
+            Mysticism.MOD_ID
         );
 
     public static final DeferredHolder<Attribute, Attribute> MAX_MANA =
         ATTRIBUTES.register(
             "max_mana",
             () -> new RangedAttribute(
-                "attribute.name.simper_mana_library.max_mana",
+                "attribute.name.mysticism.max_mana",
                 FALLBACK_MAX_MANA,
                 0.0D,
                 ManaDataLimits.HARD_CAP
@@ -34,12 +34,12 @@ public final class SimperManaAttributes {
         ATTRIBUTES.register(
             "mana_regen_per_second",
             () -> new RangedAttribute(
-                "attribute.name.simper_mana_library.mana_regen_per_second",
+                "attribute.name.mysticism.mana_regen_per_second",
                 FALLBACK_MANA_REGEN,
                 0.0D,
                 1024.0D
             ).setSyncable(true)
         );
 
-    private SimperManaAttributes() {}
+    private MysticismAttributes() {}
 }

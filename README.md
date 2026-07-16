@@ -1,4 +1,4 @@
-# Simper Mana Library
+# Mysticism
 
 Mana library for Minecraft 1.21.1 on NeoForge 21.1.
 

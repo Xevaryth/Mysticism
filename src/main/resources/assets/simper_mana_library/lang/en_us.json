@@ -1,9 +1,0 @@
-{
-  "attribute.name.simper_mana_library.mana_regen_per_second": "Mana Regeneration",
-  "attribute.name.simper_mana_library.max_mana": "Maximum Mana",
-  "commands.simper_mana_library.get": "Mana: %s / %s",
-  "commands.simper_mana_library.set": "Set maximum mana to %s.",
-  "commands.simper_mana_library.add": "Changed maximum mana by %s. New maximum: %s.",
-  "commands.simper_mana_library.fill": "Mana filled.",
-  "commands.simper_mana_library.empty": "Mana emptied."
-}

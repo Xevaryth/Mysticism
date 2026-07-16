@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simper Mana Library Config Generator</title>
+  <title>Mysticism Config Generator</title>
   <style>
     :root { color-scheme: dark; font-family: system-ui, sans-serif; background: #0e0b13; color: #eeeaf7; }
     * { box-sizing: border-box; }
@@ -28,7 +28,7 @@
   <main>
     <a href="README.md">← Wiki</a>
     <h1>Config generator</h1>
-    <p>Create a server configuration for Simper Mana Library. Everything runs in this file.</p>
+    <p>Create a server configuration for Mysticism. Everything runs in this file.</p>
 
     <section class="panel">
       <label>
@@ -42,7 +42,7 @@
       <pre id="output" aria-live="polite"></pre>
       <div class="actions">
         <button id="copy" type="button">Copy</button>
-        <button id="download" class="primary" type="button">Download simper_mana_library-server.toml</button>
+        <button id="download" class="primary" type="button">Download mysticism-server.toml</button>
       </div>
     </section>
   </main>
@@ -82,7 +82,7 @@
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'simper_mana_library-server.toml';
+      link.download = 'mysticism-server.toml';
       link.click();
       URL.revokeObjectURL(url);
     });

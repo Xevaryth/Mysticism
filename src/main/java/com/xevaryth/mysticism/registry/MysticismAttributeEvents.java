@@ -1,15 +1,15 @@
-package com.xevaryth.simpermanalibrary.registry;
+package com.xevaryth.mysticism.registry;
 
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 
-public final class SimperManaAttributeEvents {
-    private SimperManaAttributeEvents() {}
+public final class MysticismAttributeEvents {
+    private MysticismAttributeEvents() {}
 
     public static void register(IEventBus modBus) {
         modBus.addListener(
-            SimperManaAttributeEvents::modifyPlayerAttributes
+            MysticismAttributeEvents::modifyPlayerAttributes
         );
     }
 
@@ -18,12 +18,12 @@ public final class SimperManaAttributeEvents {
     ) {
         event.add(
             EntityType.PLAYER,
-            SimperManaAttributes.MAX_MANA
+            MysticismAttributes.MAX_MANA
         );
 
         event.add(
             EntityType.PLAYER,
-            SimperManaAttributes.MANA_REGEN_PER_SECOND
+            MysticismAttributes.MANA_REGEN_PER_SECOND
         );
     }
 }

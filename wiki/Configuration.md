@@ -3,7 +3,7 @@
 Server settings are stored in:
 
 ```text
-<world>/serverconfig/simper_mana_library-server.toml
+<world>/serverconfig/mysticism-server.toml
 ```
 
 Use the [config generator](config-generator.html), or edit the file directly:

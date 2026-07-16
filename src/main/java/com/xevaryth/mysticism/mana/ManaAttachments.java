@@ -1,8 +1,8 @@
-package com.xevaryth.simpermanalibrary.mana;
+package com.xevaryth.mysticism.mana;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.xevaryth.simpermanalibrary.SimperManaLibrary;
+import com.xevaryth.mysticism.Mysticism;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.neoforged.bus.api.IEventBus;
@@ -90,7 +90,7 @@ public final class ManaAttachments {
         AttachmentType<?>
         > ATTACHMENTS = DeferredRegister.create(
         NeoForgeRegistries.Keys.ATTACHMENT_TYPES,
-        SimperManaLibrary.MOD_ID
+        Mysticism.MOD_ID
     );
 
     public static final Supplier<

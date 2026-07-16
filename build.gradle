@@ -41,7 +41,7 @@ neoForge {
     }
 
     mods {
-        simper_mana_library {
+        mysticism {
             sourceSet sourceSets.main
         }
     }
@@ -96,4 +96,10 @@ publishing {
             url = layout.buildDirectory.dir('repo')
         }
     }
+}
+
+tasks.register('run') {
+    group = 'mod development'
+    description = 'Launches the Minecraft development client.'
+    dependsOn 'runClient'
 }

@@ -3,13 +3,13 @@
 The supported package is:
 
 ```text
-com.xevaryth.simpermanalibrary.api
+com.xevaryth.mysticism.api
 ```
 
 Use mana mutations on the logical server.
 
 ```java
-import com.xevaryth.simpermanalibrary.api.ManaApi;
+import com.xevaryth.mysticism.api.ManaApi;
 
 int current = ManaApi.getMana(player);
 int maximum = ManaApi.getMaxMana(player);
@@ -34,5 +34,5 @@ ManaApi.addMana(player, 10);
 | `fillMana(player)` | Fill current mana. |
 | `emptyMana(player)` | Empty current mana. |
 
-`SimperManaLibraryApi` exposes registry IDs and handles for `max_mana` and
+`MysticismApi` exposes registry IDs and handles for `max_mana` and
 `mana_regen_per_second`.

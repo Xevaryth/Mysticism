@@ -1,7 +1,7 @@
-package com.xevaryth.simpermanalibrary.mana;
+package com.xevaryth.mysticism.mana;
 
-import com.xevaryth.simpermanalibrary.config.SimperManaConfig;
-import com.xevaryth.simpermanalibrary.registry.SimperManaAttributes;
+import com.xevaryth.mysticism.config.MysticismConfig;
+import com.xevaryth.mysticism.registry.MysticismAttributes;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -53,7 +53,7 @@ public final class ManaEvents {
 
         double regeneration =
             player.getAttributeValue(
-                SimperManaAttributes
+                MysticismAttributes
                     .MANA_REGEN_PER_SECOND
                     .getDelegate()
             );
@@ -92,7 +92,7 @@ public final class ManaEvents {
             0,
             (int) Math.floor(
                 player.getAttributeValue(
-                    SimperManaAttributes
+                    MysticismAttributes
                         .MAX_MANA
                         .getDelegate()
                 )
@@ -106,21 +106,21 @@ public final class ManaEvents {
     ) {
         AttributeInstance maximumMana =
             player.getAttribute(
-                SimperManaAttributes
+                MysticismAttributes
                     .MAX_MANA
                     .getDelegate()
             );
 
         AttributeInstance regeneration =
             player.getAttribute(
-                SimperManaAttributes
+                MysticismAttributes
                     .MANA_REGEN_PER_SECOND
                     .getDelegate()
             );
 
         if (maximumMana != null) {
             maximumMana.setBaseValue(
-                SimperManaConfig
+                MysticismConfig
                     .STARTING_MAX_MANA
                     .get()
             );
@@ -128,7 +128,7 @@ public final class ManaEvents {
 
         if (regeneration != null) {
             regeneration.setBaseValue(
-                SimperManaConfig
+                MysticismConfig
                     .STARTING_MANA_REGEN_PER_SECOND
                     .get()
             );

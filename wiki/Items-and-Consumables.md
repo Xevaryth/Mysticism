@@ -6,10 +6,10 @@ The library does not currently register items.
 
 Equipment from another mod can apply modifiers to:
 
-- `simper_mana_library:max_mana`
-- `simper_mana_library:mana_regen_per_second`
+- `mysticism:max_mana`
+- `mysticism:mana_regen_per_second`
 
-The attribute handles are available from `SimperManaLibraryApi`.
+The attribute handles are available from `MysticismApi`.
 
 ## Instant mana restoration
 

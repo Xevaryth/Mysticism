@@ -1,12 +1,12 @@
-package com.xevaryth.simpermanalibrary.api;
+package com.xevaryth.mysticism.api;
 
-import com.xevaryth.simpermanalibrary.mana.ManaAttachments;
-import com.xevaryth.simpermanalibrary.mana.ManaData;
-import com.xevaryth.simpermanalibrary.registry.SimperManaAttributes;
+import com.xevaryth.mysticism.mana.ManaAttachments;
+import com.xevaryth.mysticism.mana.ManaData;
+import com.xevaryth.mysticism.registry.MysticismAttributes;
 import net.minecraft.world.entity.player.Player;
 
 /**
- * Public entry point for interacting with Simper Mana Library's player mana system.
+ * Public entry point for interacting with Mysticism's player mana system.
  *
  * <p>Consumers should use this class instead of accessing attachments or
  * implementation classes directly. All mutations are clamped to the player's
@@ -21,13 +21,13 @@ public final class ManaApi {
 
     public static int getMaxMana(Player player) {
         return Math.max(0, (int) Math.floor(player.getAttributeValue(
-            SimperManaAttributes.MAX_MANA.getDelegate()
+            MysticismAttributes.MAX_MANA.getDelegate()
         )));
     }
 
     public static double getManaRegenPerSecond(Player player) {
         return player.getAttributeValue(
-            SimperManaAttributes.MANA_REGEN_PER_SECOND.getDelegate()
+            MysticismAttributes.MANA_REGEN_PER_SECOND.getDelegate()
         );
     }
 
