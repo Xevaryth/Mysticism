@@ -13,6 +13,11 @@ base {
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
 neoForge {
     version = neoforge_version
 
@@ -36,7 +41,7 @@ neoForge {
     }
 
     mods {
-        mysticism {
+        simper_mana_library {
             sourceSet sourceSets.main
         }
     }
@@ -81,10 +86,14 @@ processResources {
 publishing {
     publications {
         register('mavenJava', MavenPublication) {
+            artifactId = mod_id
             from components.java
         }
     }
     repositories {
-        maven { url = file('repo') }
+        maven {
+            name = 'local'
+            url = layout.buildDirectory.dir('repo')
+        }
     }
 }

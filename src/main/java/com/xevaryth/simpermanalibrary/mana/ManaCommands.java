@@ -1,9 +1,9 @@
-package com.xevaryth.mysticism.mana;
+package com.xevaryth.simpermanalibrary.mana;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import com.xevaryth.mysticism.registry.MysticismAttributes;
+import com.xevaryth.simpermanalibrary.registry.SimperManaAttributes;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
@@ -106,7 +106,7 @@ public final class ManaCommands {
 
         source.sendSuccess(
             () -> Component.translatable(
-                "commands.mysticism.get",
+                "commands.simper_mana_library.get",
                 data.currentMana(),
                 maximumMana
             ),
@@ -147,7 +147,7 @@ public final class ManaCommands {
 
         source.sendSuccess(
             () -> Component.translatable(
-                "commands.mysticism.set",
+                "commands.simper_mana_library.set",
                 resultingMaximum
             ),
             true
@@ -209,7 +209,7 @@ public final class ManaCommands {
 
         source.sendSuccess(
             () -> Component.translatable(
-                "commands.mysticism.add",
+                "commands.simper_mana_library.add",
                 amount,
                 newMaximum
             ),
@@ -240,7 +240,7 @@ public final class ManaCommands {
 
         source.sendSuccess(
             () -> Component.translatable(
-                "commands.mysticism.fill"
+                "commands.simper_mana_library.fill"
             ),
             true
         );
@@ -267,7 +267,7 @@ public final class ManaCommands {
 
         source.sendSuccess(
             () -> Component.translatable(
-                "commands.mysticism.empty"
+                "commands.simper_mana_library.empty"
             ),
             true
         );
@@ -281,14 +281,14 @@ public final class ManaCommands {
     ) {
         AttributeInstance attribute =
             player.getAttribute(
-                MysticismAttributes
+                SimperManaAttributes
                     .MAX_MANA
                     .getDelegate()
             );
 
         if (attribute == null) {
             throw new IllegalStateException(
-                "Player is missing the Mysticism maximum mana attribute."
+                "Player is missing the Simper Mana Library maximum mana attribute."
             );
         }
 

@@ -1,9 +1,9 @@
-package com.xevaryth.mysticism.client;
+package com.xevaryth.simpermanalibrary.client;
 
 import com.mojang.math.Axis;
-import com.xevaryth.mysticism.Mysticism;
-import com.xevaryth.mysticism.mana.ManaAttachments;
-import com.xevaryth.mysticism.mana.ManaData;
+import com.xevaryth.simpermanalibrary.SimperManaLibrary;
+import com.xevaryth.simpermanalibrary.mana.ManaAttachments;
+import com.xevaryth.simpermanalibrary.mana.ManaData;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -13,20 +13,20 @@ import net.minecraft.world.level.GameType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
-import com.xevaryth.mysticism.registry.MysticismAttributes;
+import com.xevaryth.simpermanalibrary.registry.SimperManaAttributes;
 
 public final class ManaHud {
     private ManaHud() {}
 
     private static final ResourceLocation LAYER =
         ResourceLocation.fromNamespaceAndPath(
-            Mysticism.MODID,
+            SimperManaLibrary.MOD_ID,
             "mana"
         );
 
     private static final ResourceLocation TEXTURE =
         ResourceLocation.fromNamespaceAndPath(
-            Mysticism.MODID,
+            SimperManaLibrary.MOD_ID,
             "textures/gui/mana_stars.png"
         );
 
@@ -120,7 +120,7 @@ public final class ManaHud {
             0,
             (int) Math.floor(
                 minecraft.player.getAttributeValue(
-                    MysticismAttributes.MAX_MANA.getDelegate()
+                    SimperManaAttributes.MAX_MANA.getDelegate()
                 )
             )
         );

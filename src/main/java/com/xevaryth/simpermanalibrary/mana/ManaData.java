@@ -1,4 +1,4 @@
-package com.xevaryth.mysticism.mana;
+package com.xevaryth.simpermanalibrary.mana;
 
 public final class ManaData {
     private int currentMana = 0;

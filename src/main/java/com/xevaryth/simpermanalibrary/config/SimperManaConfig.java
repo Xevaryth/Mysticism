@@ -1,9 +1,9 @@
-package com.xevaryth.mysticism.config;
+package com.xevaryth.simpermanalibrary.config;
 
-import com.xevaryth.mysticism.mana.ManaDataLimits;
+import com.xevaryth.simpermanalibrary.mana.ManaDataLimits;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-public final class MysticismConfig {
+public final class SimperManaConfig {
     public static final ModConfigSpec SPEC;
 
     public static final ModConfigSpec.IntValue STARTING_MAX_MANA;
@@ -44,5 +44,5 @@ public final class MysticismConfig {
         SPEC = builder.build();
     }
 
-    private MysticismConfig() {}
+    private SimperManaConfig() {}
 }
