@@ -36,7 +36,7 @@ public final class MysticismAttributes {
             () -> new RangedAttribute(
                 "attribute.name.mysticism.mana_regen_per_second",
                 FALLBACK_MANA_REGEN,
-                0.0D,
+                -1024.0D,
                 1024.0D
             ).setSyncable(true)
         );

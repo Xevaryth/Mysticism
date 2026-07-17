@@ -17,7 +17,9 @@ startingManaRegenPerSecond = 1.0
 | Setting | Default | Range |
 | --- | ---: | ---: |
 | `startingMaxMana` | `40` | `0` to `9999` |
-| `startingManaRegenPerSecond` | `1.0` | `0.0` to `1024.0` |
+| `startingManaRegenPerSecond` | `1.0` | `-1024.0` to `1024.0` |
 
 The starting values are assigned when a player's mana attributes are first
 initialized.
+
+A negative regeneration value drains mana each second instead of restoring it.

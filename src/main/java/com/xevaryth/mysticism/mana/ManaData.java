@@ -58,8 +58,11 @@ public final class ManaData {
         int safeMaxMana = Math.max(0, maxMana);
 
         if (
-            manaPerSecond <= 0.0D ||
-                currentMana >= safeMaxMana
+            manaPerSecond == 0.0D ||
+                manaPerSecond > 0.0D &&
+                    currentMana >= safeMaxMana ||
+                manaPerSecond < 0.0D &&
+                    currentMana <= 0
         ) {
             regenAccumulator = 0.0D;
             return false;
@@ -67,10 +70,17 @@ public final class ManaData {
 
         regenAccumulator += manaPerSecond / 20.0D;
 
-        int wholeMana =
-            (int) Math.floor(regenAccumulator);
+        int wholeMana;
 
-        if (wholeMana <= 0) {
+        if (regenAccumulator >= 1.0D) {
+            wholeMana = (int) Math.floor(
+                regenAccumulator
+            );
+        } else if (regenAccumulator <= -1.0D) {
+            wholeMana = (int) Math.ceil(
+                regenAccumulator
+            );
+        } else {
             return false;
         }
 

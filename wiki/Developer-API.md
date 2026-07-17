@@ -36,3 +36,7 @@ ManaApi.addMana(player, 10);
 
 `MysticismApi` exposes registry IDs and handles for `max_mana` and
 `mana_regen_per_second`.
+
+The effective regeneration attribute may be negative. Negative values drain
+mana over time and are clamped at zero. This is intended for sustained item
+costs applied through temporary attribute modifiers.

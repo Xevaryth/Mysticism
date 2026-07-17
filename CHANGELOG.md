@@ -6,6 +6,7 @@
 - Initial NeoForge 1.21.1 project.
 - Added player mana attachment.
 - Added mana regeneration attribute.
+- Added negative regeneration for sustained mana drains.
 - Added `/mana` test commands.
 - Added vanilla-style mana HUD row.
 - Added a self-contained layered mana HUD.

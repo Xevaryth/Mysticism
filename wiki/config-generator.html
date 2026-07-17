@@ -36,8 +36,8 @@
         <input id="maximum" type="number" min="0" max="9999" step="1" value="40">
       </label>
       <label>
-        <span><strong>Regeneration per second</strong><small>0.0 to 1024.0</small></span>
-        <input id="regeneration" type="number" min="0" max="1024" step="0.1" value="1.0">
+        <span><strong>Regeneration per second</strong><small>-1024.0 to 1024.0; negative values drain mana</small></span>
+        <input id="regeneration" type="number" min="-1024" max="1024" step="0.1" value="1.0">
       </label>
       <pre id="output" aria-live="polite"></pre>
       <div class="actions">
@@ -58,7 +58,7 @@
 
     function config() {
       const maximumValue = Math.floor(clamp(maximum.value, 0, 9999));
-      const regenerationValue = clamp(regeneration.value, 0, 1024);
+      const regenerationValue = clamp(regeneration.value, -1024, 1024);
       maximum.value = maximumValue;
       regeneration.value = regenerationValue.toFixed(1);
       return `[mana]\nstartingMaxMana = ${maximumValue}\nstartingManaRegenPerSecond = ${regenerationValue.toFixed(1)}\n`;

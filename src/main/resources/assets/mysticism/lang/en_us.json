@@ -4,6 +4,8 @@
   "commands.mysticism.get": "Mana: %s / %s",
   "commands.mysticism.set": "Set maximum mana to %s.",
   "commands.mysticism.add": "Changed maximum mana by %s. New maximum: %s.",
+  "commands.mysticism.consume": "Consumed %s mana. Remaining: %s.",
+  "commands.mysticism.consume.not_enough": "Not enough mana to consume %s. Current mana: %s.",
   "commands.mysticism.fill": "Mana filled.",
   "commands.mysticism.empty": "Mana emptied."
 }

@@ -3,6 +3,7 @@ package com.xevaryth.mysticism.mana;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.xevaryth.mysticism.api.ManaApi;
 import com.xevaryth.mysticism.registry.MysticismAttributes;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -80,6 +81,27 @@ public final class ManaCommands {
                     Commands.literal("fill")
                         .executes(context ->
                             fill(context.getSource())
+                        )
+                )
+                .then(
+                    Commands.literal("consume")
+                        .then(
+                            Commands.argument(
+                                "amount",
+                                IntegerArgumentType.integer(
+                                    1,
+                                    ManaDataLimits.HARD_CAP
+                                )
+                            ).executes(context ->
+                                consume(
+                                    context.getSource(),
+                                    IntegerArgumentType
+                                        .getInteger(
+                                            context,
+                                            "amount"
+                                        )
+                                )
+                            )
                         )
                 )
                 .then(
@@ -273,6 +295,39 @@ public final class ManaCommands {
         );
 
         return data.currentMana();
+    }
+
+    private static int consume(
+        CommandSourceStack source,
+        int amount
+    ) throws CommandSyntaxException {
+        ServerPlayer player =
+            source.getPlayerOrException();
+
+        if (!ManaApi.tryConsumeMana(player, amount)) {
+            source.sendFailure(
+                Component.translatable(
+                    "commands.mysticism.consume.not_enough",
+                    amount,
+                    ManaApi.getMana(player)
+                )
+            );
+
+            return 0;
+        }
+
+        int remainingMana = ManaApi.getMana(player);
+
+        source.sendSuccess(
+            () -> Component.translatable(
+                "commands.mysticism.consume",
+                amount,
+                remainingMana
+            ),
+            true
+        );
+
+        return amount;
     }
 
     private static AttributeInstance
